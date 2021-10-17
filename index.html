@@ -70,7 +70,7 @@
       
 
 <h2 itemprop="name">
-  <a class="article-title" href="/2021/10/13/hello-world/">Hello World</a>
+  <a class="article-title" href="/2021/10/17/hello-world/">Hello World</a>
 </h2>
 
 
@@ -80,8 +80,8 @@
 
     
     <div class="article-meta">
-      <a href="/2021/10/13/hello-world/" class="article-date">
-  <time datetime="2021-10-13T06:45:55.425Z" itemprop="datePublished">2021-10-13</time>
+      <a href="/2021/10/17/hello-world/" class="article-date">
+  <time datetime="2021-10-17T01:12:32.432Z" itemprop="datePublished">2021-10-17</time>
 </a>
       
     </div>
@@ -112,7 +112,71 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://pubvate.github.io/2021/10/13/hello-world/" data-id="ckup5garo00012vs6hn49a469" class="article-share-link">
+      <a data-url="https://pubvate.github.io/2021/10/17/hello-world/" data-id="ckuujazws000316swhiu44shs" class="article-share-link">
+        Share
+      </a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+    
+    <article id="post-002-run-terminal-with-rosetta" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/10/17/002-run-terminal-with-rosetta/">在 M1 版 Mac 上安装 V14 以下的老版本 Node</a>
+</h2>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2021/10/17/002-run-terminal-with-rosetta/" class="article-date">
+  <time datetime="2021-10-17T00:55:16.000Z" itemprop="datePublished">2021-10-17</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        
+      
+      
+      <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>Node 从 V15 版本才开始适配 M1 芯片，但是工作中可能要依赖 V14 及以下版本的 Node，需要安装低版本 Node 时很可能会报错</p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arch -x86_64 zsh</span><br></pre></td></tr></table></figure>
+<p>通过这个命令可以让 shell 运行在 Rosetta2 下。<br>之后你可以通过 <code>nvm install v14</code> 来安装低版本 Node。<br>在此之后，您可以不用在 Rosetta2 中就可以使用安装的可执行文件，也就是说，您可以将 Node v15与其他节点版本互换使用。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过以下方式切换回 arm64</span></span><br><span class="line">arch -arm64 zsh</span><br></pre></td></tr></table></figure>
+
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>就是通过 Rosetta2 来启动终端，这样通过 Rosetta2 转译到 x86 架构中执行安装，也一样可以安装成功。</p>
+<ul>
+<li>在 finder 中，点击应用程序，并在实用工具中找到终端 (Terminal)</li>
+<li>右键终端，点击获取信息</li>
+<li>选择 使用Rosetta 打开</li>
+<li>重启终端，并执行 <code>nvm install v14</code> 命令<br><img src="001.png"></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://pubvate.github.io/2021/10/17/002-run-terminal-with-rosetta/" data-id="ckuujazwp000116sw41256sek" class="article-share-link">
         Share
       </a>
       
@@ -179,7 +243,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://pubvate.github.io/2021/10/13/001-power/" data-id="ckup5gark00002vs68wai56f2" class="article-share-link">
+      <a data-url="https://pubvate.github.io/2021/10/13/001-power/" data-id="ckuujazwl000016swgi4mheek" class="article-share-link">
         Share
       </a>
       

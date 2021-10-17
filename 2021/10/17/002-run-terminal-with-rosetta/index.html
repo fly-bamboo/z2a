@@ -10,7 +10,7 @@
   <meta name="description" content="逃不脱牢笼，那就带牢笼飞翔吧">
   
   <title>
-    金属笔记本用两头充电器充电时表面麻麻的漏电怎么办？ |
+    在 M1 版 Mac 上安装 V14 以下的老版本 Node |
     
     飞翔的竹子
   </title>
@@ -29,7 +29,7 @@
 <body>
   <main class="content">
     <section class="outer">
-  <article id="post-001-power" class="article article-type-post" itemscope
+  <article id="post-002-run-terminal-with-rosetta" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -38,7 +38,7 @@
       
 
 <h1 class="article-title" itemprop="name">
-  金属笔记本用两头充电器充电时表面麻麻的漏电怎么办？
+  在 M1 版 Mac 上安装 V14 以下的老版本 Node
 </h1>
 
 
@@ -48,8 +48,8 @@
 
     
     <div class="article-meta">
-      <a href="/2021/10/13/001-power/" class="article-date">
-  <time datetime="2021-10-13T03:59:55.000Z" itemprop="datePublished">2021-10-13</time>
+      <a href="/2021/10/17/002-run-terminal-with-rosetta/" class="article-date">
+  <time datetime="2021-10-17T00:55:16.000Z" itemprop="datePublished">2021-10-17</time>
 </a>
       
     </div>
@@ -65,31 +65,26 @@
       
       
       
-      <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>最近换了苹果的笔记本，是 M1 的 MacBook Air，充电器是两头的，这样的，<br><img src="001.jpg"><br>每次充电时，都会感觉到笔记本上麻麻的，好像在漏电似的。<br>换用以前电脑上的那种三脚插头的充电器，就不会有这个问题。</p>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>造成原因解释起来有点太专业，我也没看懂，感兴趣的同学可以看<a target="_blank" rel="noopener" href="https://www.ednchina.com/news/20170818macbook.html">这里</a></p>
-<h2 id="危害"><a href="#危害" class="headerlink" title="危害"></a>危害</h2><ol>
-<li>对人体没有危害，人体安全电流是0.25安，它这个漏电电流大概是0.05安</li>
-<li>不是所有人都能感觉到它的存在，我是轻轻接触到笔记本的金属表面才会感觉很明显</li>
-</ol>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>越来越多的充电设备使用两插设计了，好处是减少体积增加了便携性，但是这种漏电的感觉真的难受，所以伙搜集了一些解决方法</p>
-<ol>
-<li><p>苹果的原装充电器的插头是可以更换的，像这样把插头拔下来，<br><img src="002.jpg"><br>然后换一个这种在三相插头就好了。这种三相插头某宝有卖，30几块钱，效果立杆见影，而且可以当延长线用，<br><img src="003.jpg"><br>但是没找到那种只有三相插头不带线的，便携性不好</p>
-</li>
-<li><p>不是所有以充电器都可以换插头，所以可以用这种免接地线在漏电保护插座, 或者接地宝，而且可以把插排插到上面扩展使用，多插几个充电器也可以免漏电啦<br><img src="005.png"></p>
-</li>
-<li><p>第3种方法需要有一个支持PD输出在充电宝，平时用充电宝供电，像我这个99Wh在，C 口最大输出可以到100w，M1 MacBook Air用电比较少，连续用两天都没问题<br><img src="004.jpg"></p>
-</li>
-</ol>
+      <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>Node 从 V15 版本才开始适配 M1 芯片，但是工作中可能要依赖 V14 及以下版本的 Node，需要安装低版本 Node 时很可能会报错</p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arch -x86_64 zsh</span><br></pre></td></tr></table></figure>
+<p>通过这个命令可以让 shell 运行在 Rosetta2 下。<br>之后你可以通过 <code>nvm install v14</code> 来安装低版本 Node。<br>在此之后，您可以不用在 Rosetta2 中就可以使用安装的可执行文件，也就是说，您可以将 Node v15与其他节点版本互换使用。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过以下方式切换回 arm64</span></span><br><span class="line">arch -arm64 zsh</span><br></pre></td></tr></table></figure>
+
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>就是通过 Rosetta2 来启动终端，这样通过 Rosetta2 转译到 x86 架构中执行安装，也一样可以安装成功。</p>
+<ul>
+<li>在 finder 中，点击应用程序，并在实用工具中找到终端 (Terminal)</li>
+<li>右键终端，点击获取信息</li>
+<li>选择 使用Rosetta 打开</li>
+<li>重启终端，并执行 <code>nvm install v14</code> 命令<br><img src="001.png"></li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://pubvate.github.io/2021/10/13/001-power/" data-id="ckuujazwl000016swgi4mheek" class="article-share-link">
+      <a data-url="https://pubvate.github.io/2021/10/17/002-run-terminal-with-rosetta/" data-id="ckuujazwp000116sw41256sek" class="article-share-link">
         Share
       </a>
       
-<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" rel="tag">杂七杂八</a></li></ul>
-
     </footer>
 
   </div>
@@ -98,15 +93,20 @@
   
 <nav class="article-nav">
   
-  <a href="/2021/10/17/002-run-terminal-with-rosetta/" class="article-nav-link">
+  <a href="/2021/10/17/hello-world/" class="article-nav-link">
     <strong class="article-nav-caption">Newer</strong>
     <div class="article-nav-title">
       
-      在 M1 版 Mac 上安装 V14 以下的老版本 Node
+      Hello World
       
     </div>
   </a>
   
+  
+  <a href="/2021/10/13/001-power/" class="article-nav-link">
+    <strong class="article-nav-caption">Older</strong>
+    <div class="article-nav-title">金属笔记本用两头充电器充电时表面麻麻的漏电怎么办？</div>
+  </a>
   
 </nav>
 
