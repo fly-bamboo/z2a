@@ -22,8 +22,8 @@ excerpt_link: Read More...
 
 # MIIT ICP/IP/DOMAIN
 beian:
-  enable: false
-  number: FLY-BAMBOO
+  enable: true
+  number: 京ICP备2022006786号
   url: https://beian.miit.gov.cn/
 
 
